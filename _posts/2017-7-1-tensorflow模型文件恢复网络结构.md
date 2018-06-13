@@ -2,7 +2,7 @@
 
 1. 有tf的model文件恢复网络结构
 
-```
+```python
 import tensorflow  as tf
 
 file_name = 'fcn.tfmodel'
@@ -13,7 +13,7 @@ print(reader.debug_string().decode("utf-8"))
 ```
 
 输出为：
-```
+```python
 Variable (DT_INT32) []
 W6 (DT_FLOAT) [7,7,512,4096]
 W6/Adam (DT_FLOAT) [7,7,512,4096]
@@ -54,7 +54,7 @@ b_t2/Adam_1 (DT_FLOAT) [256]
 
 2. pb文件查看网络结构
 
-```
+```python
 import tensorflow as tf
 
 output_graph_path = './output_graph.pb'
