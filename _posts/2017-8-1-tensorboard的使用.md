@@ -13,13 +13,14 @@ tensorboard的作用不言而喻
 
 首先将需要显示在tensorboard里面的变量放置在summary中
 这个变量可以是：
-(1) 标量Scalars
-(2) 图片Images
-(3) 音频Audio
-(4) 计算图Graph
-(5) 数据分布Distribution
-(6) 直方图Histograms
-(7) 嵌入向量Embeddings
+
+* 标量Scalars
+* 图片Images
+* 音频Audio
+* 计算图Graph
+* 数据分布Distribution
+* 直方图Histograms
+* 嵌入向量Embeddings
 
 分别使用tf.summary.scalar记录标量，tf.summary.histogram记录数据的直方图，tf.summary.distribution记录数据的分布图，tf.summary.image记录图像数据等
 
@@ -30,7 +31,7 @@ SummaryWriter的构造函数中包含了参数 logdir。这个logdir 非常重�
 在session中run前面merge_all的summary
 来自官方的代码：
 
-```
+```python
 merged_summary_op = tf.merge_all_summaries()
 summary_writer = tf.train.SummaryWriter('/tmp/mnist_logs', sess.graph)
 total_step = 0
@@ -41,11 +42,15 @@ while training:
     summary_str = session.run(merged_summary_op)
     summary_writer.add_summary(summary_str, total_step)
 ```
+
 最后启动tensorboard
+
 logdir 就是前面SummaryWriter里面log的路径，具体操作方式如下：
+
 ```python tensorflow/tensorboard/tensorboard.py --logdir=path/to/log-directory```
 
 最后就可以在输出信息里面找到地址在浏览器中观察训练的具体情况了。
 
 如果pip安装tensorboard之后可以用下面这种方式
+
 ```tensorboard --logdir=/path/to/log-directory```

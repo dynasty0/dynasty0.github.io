@@ -7,10 +7,18 @@ categories: 深度学习
 > Tensorflow实现自己的分类模型,
 > 这里我们采用tensorflow源码自带的retrain.py进行训练
 
-# 1. 首先建立数据集，将不同类的图片放入不同的文件夹里面，最后应该是{path}/data/class1,{path}/data/calss2这样的
-# 2. 调用retrain.py重新训练
-```python tensorflow/examples/image_retraining/retrain.py \
-    --image_dir ~/flower_photos/   --architecture mobilenet_1.0_224_quantized```
+# 数据集制作
+ 
+首先建立数据集，将不同类的图片放入不同的文件夹里面，最后应该是{path}/data/class1,{path}/data/calss2这样的
+
+# 调用retrain.py重新训练
+
+```python
+python tensorflow/examples/image_retraining/retrain.py \
+    --image_dir ~/flower_photos/   \
+    --architecture mobilenet_1.0_224_quantized
+```
+
 或者
 
 ```python
@@ -28,6 +36,7 @@ python tensorflow/examples/image_retraining/retrain.py \
     --how_many_training_steps=600 \
     --architecture mobilenet_1.0_224
 ```
+
 具体的参数解释请参考：官方源码
 
 注：直接python xxx这样的方式调用是需要先pip安装好tensorflow的，如果没有预先安装，则需要bazel。
@@ -49,7 +58,7 @@ INFO:tensorflow:Froze 20 variables.
 Converted 20 variables to const ops
 ```
 
-# 3. 使用得到的pb文件进行inference测试
+# 使用得到的pb文件进行inference测试
 训练完成之后，保存的模型文件，labels.txt包括一些中间生成，下载的预训练好的模型（上面--architecture所对应的模型文件），都会保存在/tmp/目录下。
 最重要的两个文件是：/tmp/output_graph.pb和/tmp/output_labels.txt。
 有了pb文件，能不能跑起来呢，我们来测试一下。
@@ -98,7 +107,7 @@ ValueError: graph_def is invalid at node u'final_training_ops/weights/MovingAvgQ
 
 这个问题还未解决。
 
-# 4. 将pb文件转换成lite文件
+# 将pb文件转换成lite文件
 
 ```python
 import tensorflow as tf
@@ -125,5 +134,5 @@ with tf.Session() as sess:
   open("converted_model.tflite", "wb").write(tflite_model)
 ```
 
-# 5. tflite文件建立Android APP
+# tflite文件建立Android APP
 。。。

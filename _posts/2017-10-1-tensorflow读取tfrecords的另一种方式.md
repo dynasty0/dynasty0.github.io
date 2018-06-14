@@ -6,7 +6,7 @@ categories: 深度学习
 
 > 此版本需要在1.2以后的版本中使用，在这里使用的1.4，具体的因版本有些许差别，主要是`tf.data`定义的位置不同。
 
-```
+```python
 #coding=utf-8
 import tensorflow  as tf
 import os
@@ -61,7 +61,7 @@ print sess.run(a1[0,0:10,0:10,0])
 ```
 
 输出结果如下：
-```
+```python
 python test.py
 Tensor("IteratorGetNext:0", shape=(?, 500, 500, 3), dtype=uint8)
 [[14 13 14 14 13 13 16 17 15 14]
