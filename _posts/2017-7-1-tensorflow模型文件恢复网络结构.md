@@ -82,4 +82,32 @@ with tf.Session() as sess:
 这只是个例子，具体按照实际需要来。
 
 ## 另外还有从meta恢复网络结构的
-。。。
+
+```python
+## 某个例子
+import tensorflow as tf
+import cv2
+import sys
+import numpy as np
+img = cv2.imread(sys.argv[1])
+msk = cv2.imread(sys.argv[2])
+sess = tf.Session()
+## 从meta恢复网络
+saver = tf.train.import_meta_graph('./model.meta')
+saver.restore(sess,'./model')
+
+graph = tf.get_default_graph()
+
+input_img = graph.get_tensor_by_name('image:0')
+input_mask = graph.get_tensor_by_name('mask:0')
+
+output = graph.get_tensor_by_name('output:0')
+
+out = sess.run(output,feed_dict={input_img: [img],input_mask: [msk]})
+
+out = (out + 1)*127.5 
+out = out.astype(np.uint8)
+
+cv2.imwrite('out.png',out[0])
+print(' ok !')
+```
