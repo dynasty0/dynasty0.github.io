@@ -1,6 +1,12 @@
+---
+tags: tensorflow
+categories: 深度学习
+---
+
+
 > tensorflow模型文件恢复网络结构的几种方法介绍
 
-## 1. 有tf的model文件恢复网络结构
+## 有tf的model文件恢复网络结构
 
 ```python
 import tensorflow  as tf
@@ -52,7 +58,7 @@ b_t2/Adam_1 (DT_FLOAT) [256]
 ....
 ```
 
-## 2. pb文件查看网络结构
+## pb文件查看网络结构
 
 ```python
 import tensorflow as tf
@@ -68,12 +74,12 @@ with tf.Session() as sess:
         print node
 ```
 
-## 3. 使用nohup
+## 使用nohup
 
 ```nohup python xxx.py```
 
 然后```cat nohup.out | grep name```:
 这只是个例子，具体按照实际需要来。
 
-## 4. 另外还有从meta恢复网络结构的
+## 另外还有从meta恢复网络结构的
 。。。

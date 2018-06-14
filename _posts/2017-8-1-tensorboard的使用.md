@@ -1,3 +1,11 @@
+---
+tags: 
+  - tensorflow
+  - tensorboard
+categories: 深度学习
+---
+
+
 > 这篇笔记主要介绍tensorflow中tensorboard的使用
 
 

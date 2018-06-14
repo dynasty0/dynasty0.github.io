@@ -1,3 +1,9 @@
+---
+tags: tensorflow
+categories: 深度学习
+---
+
+
 > Tensorflow实现自己的分类模型,
 > 这里我们采用tensorflow源码自带的retrain.py进行训练
 

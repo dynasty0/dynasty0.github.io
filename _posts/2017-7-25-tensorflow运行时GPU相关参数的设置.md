@@ -1,3 +1,8 @@
+---
+tags: tensorflow
+categories: 深度学习
+---
+
 > tensorflow运行时GPU相关参数的设置
 
 使用tensorflow时，设置GPU的一些参数，如可以多人共享使用显卡训练网络。
