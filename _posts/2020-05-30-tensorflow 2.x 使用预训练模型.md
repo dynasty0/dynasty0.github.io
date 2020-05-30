@@ -1,3 +1,7 @@
+tags: tensorflow
+categories: 深度学习
+---
+
 # tensorflow 2.x 使用预训练模型
 
 
