@@ -4,8 +4,6 @@ categories: 深度学习
 ---
 
 
-# tensorflow 2.x 使用预训练模型
-
 
 ## 1. keras.applications
 
@@ -133,7 +131,7 @@ hub.KerasLayer(
 
 
 
-**更新**
+## **更新**
 
 ```python
 ###使用tf2.x模型，添加 arguments=dict(return_endpoints=True) 以字典的形式，获取所有输出
